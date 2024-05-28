@@ -8,14 +8,14 @@ test('Display renders correctly', () => {
 
 
 test('Renders the text THIS IS A SENTENCE!', () => {
-    const { getByText } = render(<Display text={"THIS IS A SENTENCE."} />)
+    const { getByText } = render(<Display bigText={"THIS IS A SENTENCE."} />)
     const element = getByText("THIS IS A SENTENCE.")
     expect(element).toBeInTheDocument()
 })
 
 test('Renders just a 9 char text, and cut if bigger', () => {
-    const { getByText } = render(<Display text={"123456789-10"} maxLength={9} />)
-    screen.debug()
-    const element = getByText("123456789")
-    expect(element).toBeInTheDocument()
+    const { getByText } = render(<Display bigText={"123456789-10"} smallText={"987654321-10"} maxLength={9} />)
+    const bigText = getByText("123456789")
+    const smallText = getByText("987654321")
+    expect(bigText, smallText).toBeInTheDocument()
 })

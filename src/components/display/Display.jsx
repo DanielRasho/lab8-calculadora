@@ -1,21 +1,37 @@
 import { useEffect, useState } from "react";
+import './Display.css'
 
-export default function Display({text, maxLength}) {
+export default function Display({bigText, smallText, extraText ,maxLength}) {
     
-    const [ displayText, setDisplayText ] = useState("")
+    const [ displayBigText, setDisplayBigText ] = useState("")
+    const [ displaySmallText, setDisplaySmallText ] = useState("")
 
     useEffect( ()=>{
-        if( text ){
-            if ( text.length > maxLength )
-                setDisplayText(text.substring(0, maxLength))
+        if( bigText || bigText === ''){
+            if ( bigText.length > maxLength ){
+                setDisplayBigText(bigText.substring(0, maxLength))
+                console.log("BIG ENOUGH")
+            }
             else
-                setDisplayText(text)
+                setDisplayBigText(bigText)
+        }
+        if( smallText || smallText === ''){
+            if ( smallText.length > maxLength )
+                setDisplaySmallText(smallText.substring(0, maxLength))
+            else
+                setDisplaySmallText(smallText)
         }
             
-    }, [text, maxLength])
+    }, [bigText, smallText, extraText ,maxLength])
 
     return (
-        <div>{displayText}</div>
+        <div className="displayContainer">
+            <div className="bigText">{displayBigText}</div>
+            <div className="secondName">
+                <div className="extraText">{extraText}</div>
+                <div className="smallText">{displaySmallText}</div>
+            </div>
+        </div>
     )
 }
 

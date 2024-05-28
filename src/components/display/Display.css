@@ -1,0 +1,29 @@
+.displayContainer {
+    width: auto;
+    padding: 0.5rem
+}
+
+.secondName{
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondName *{
+    display: inline-block;
+    width: auto;
+}
+
+.displayContainer * {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+}
+
+.bigText {
+    font-size: 2rem;
+
+}
+
+.smallText .extraText{
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}

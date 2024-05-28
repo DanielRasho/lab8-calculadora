@@ -9,7 +9,7 @@ export default defineConfig({
     port: 3000,
  },
  resolve: {
-  '@components': '/src/components'
+  '@comp': '/src/components'
  },
  test: {
   environment: 'jsdom',
